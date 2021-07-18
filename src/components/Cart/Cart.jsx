@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import useStyles from './styles';
 import { useState } from 'react';
 
-export default function Cart( { cart, OnDeleteFromCart, booksCount } ) {
+export default function Cart( { cart, OnDeleteFromCart, booksCount, OnAddToCart } ) {
 
     const classes = useStyles();
 
@@ -19,7 +19,7 @@ export default function Cart( { cart, OnDeleteFromCart, booksCount } ) {
         <>
             <Grid container spacing={3}>
                 {cart[3].map((cartItem, index) => (
-                    <CartItem cartItemProduct={cartItem} cartItemInfo={cart[0]['products'][index]} OnDeleteFromCart={OnDeleteFromCart} />
+                    <CartItem cartItemProduct={cartItem} cartItemInfo={cart[0]['products'][index]} OnDeleteFromCart={OnDeleteFromCart} OnAddToCart={OnAddToCart}/>
                 ))}
             </Grid>
             <div className={classes.cartDetails}>

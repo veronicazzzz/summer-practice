@@ -22,15 +22,11 @@ export default function CartItem({cartItemProduct, cartItemInfo, OnDeleteFromCar
                     <Typography variant='h5'> { cartItemProduct.prices * cartItemInfo.bookss_count } руб. </Typography>
                 </CardContent>
                 <CardActions className={classes.cardAction}>
-                { checkClick ? (
-                    <Button variant='outlined' color='secondary'>
-                        Удалено
-                    </Button>
-                ) : (
-                    <Button variant='contained' color='secondary' onClick={() => {OnDeleteFromCart(cartItemInfo.bookss_id); handleClick()}}>
-                        Удалить
-                    </Button>
-                )}
+                    <div className={'buttons'}>
+                        <Button type='button' size='small' onClick={() => OnDeleteFromCart(cartItemInfo.bookss_id)} > - </Button>
+                        <Typography> { cartItemInfo.bookss_count } </Typography>
+                        <Button type='button' size='small' onClick={() => OnAddToCart(cartItemInfo.bookss_id)} > + </Button>
+                    </div>
                 </CardActions>
             </Card>
         </Grid>
