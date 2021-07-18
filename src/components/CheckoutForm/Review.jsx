@@ -2,14 +2,6 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography, List, ListItem, ListItemText, Grid, TextField, Card, CardContent } from '@material-ui/core';
 
-const products = [
-  { name: 'Product 1', desc: 'A nice thing', price: '$9.99' },
-  { name: 'Product 2', desc: 'Another thing', price: '$3.45' },
-  { name: 'Product 3', desc: 'Something else', price: '$6.51' },
-  { name: 'Product 4', desc: 'Best thing of all', price: '$14.11' },
-  { name: 'Shipping', desc: '', price: 'Free' },
-];
-
 const useStyles = makeStyles((theme) => ({
   listItem: {
     padding: theme.spacing(1, 0),
@@ -22,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Review( { info } ) {
+export default function Review( { info, cart } ) {
   const classes = useStyles();
 
   const [comment, setValue] = useState({
@@ -31,6 +23,7 @@ export default function Review( { info } ) {
 
   const handleChange = (event) => {
     setValue({...comment, ['comment']: event.target.value})
+    info = {...info, comment};
   }
 
   return (
@@ -39,16 +32,16 @@ export default function Review( { info } ) {
         Детали заказа
       </Typography>
       <List disablePadding>
-        {products.map((product) => (
+        {cart[3].map((product, index) => (
           <ListItem className={classes.listItem} key={product.name}>
-            <ListItemText primary={product.name} secondary={product.desc} />
-            <Typography variant="body2">{product.price}</Typography>
+            <ListItemText primary={product.name} />
+            <Typography variant="body2">{product.prices} x {cart[0]['products'][index]['bookss_count']}</Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" className={classes.total}>
-            $34.06
+            {cart[1]} руб. 
           </Typography>
         </ListItem>
       </List>

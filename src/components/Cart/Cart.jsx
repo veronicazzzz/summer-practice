@@ -26,7 +26,7 @@ export default function Cart( { cart, OnDeleteFromCart, booksCount } ) {
                 <Typography variant='h4'>
                     Итог: {cart[1]} руб.
                 </Typography>
-                <Button className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>
+                <Button component={Link} to='/checkout' className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>
                     К оплате
                 </Button>
             </div>

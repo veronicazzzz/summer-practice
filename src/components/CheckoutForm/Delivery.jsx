@@ -1,8 +1,32 @@
 import { TextField, Grid, Typography } from '@material-ui/core';
+import { useState } from 'react';
 
 
+export default function Delivery({ setValue, info }) {
+    const value = info;
 
-export default function Delivery({ handleChange }) {
+    const handleChangeSecondStage = (event) => {
+        const val = event.target.value;
+        const type = event.target.name;
+
+        if (type === 'city') {
+            setValue({...value, ['city']: val});
+        }
+
+        if (type === 'street') {
+            setValue({...value, ['street']: val});
+        }
+
+        if (type === 'house') {
+            setValue({...value, ['house']: val});
+        }
+
+        if (type === 'appartments') {
+            setValue({...value, ['appartments']: val});
+        }
+    }
+
+
     return (
         <>
             <Typography variant="h6" gutterBottom>
@@ -16,7 +40,7 @@ export default function Delivery({ handleChange }) {
                         name="city"
                         label="Город"
                         fullWidth
-                        onChange={e => handleChange(e)}
+                        onChange={e => handleChangeSecondStage(e)}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -26,7 +50,7 @@ export default function Delivery({ handleChange }) {
                         name="street"
                         label="Улица"
                         fullWidth
-                        onChange={e => handleChange(e)}
+                        onChange={e => handleChangeSecondStage(e)}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -36,7 +60,7 @@ export default function Delivery({ handleChange }) {
                         name="house"
                         label="Дом"
                         fullWidth
-                        onChange={e => handleChange(e)}
+                        onChange={e => handleChangeSecondStage(e)}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -46,7 +70,7 @@ export default function Delivery({ handleChange }) {
                         name="appartments"
                         label="Квартира"
                         fullWidth
-                        onChange={e => handleChange(e)}
+                        onChange={e => handleChangeSecondStage(e)}
                     />
                 </Grid>
             </Grid>

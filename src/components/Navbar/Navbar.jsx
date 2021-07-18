@@ -19,7 +19,7 @@ export default function Navbar({ booksCount }) {
                     </Typography>
                     <div className={classes.grow} />
                     <div className={classes.button}>
-                        <IconButton component={Link} to='/cart' aria-label="Содержимое корзины" color="inherit">
+                        <IconButton component={Link} to="/cart" aria-label="Содержимое корзины" color="inherit">
                             <Badge badgeContent={ String(booksCount) } color="secondary">
                                 <ShoppingCart />
                             </Badge>
