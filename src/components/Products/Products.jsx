@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, FormControl, Checkbox, FormControlLabel, FormGroup, Card, CardActions, Container, Menu, MenuItem, Button } from '@material-ui/core';
+import { Grid, Typography, Container } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import { useState } from 'react';
 import { Pagination } from '@material-ui/lab';
@@ -24,14 +24,6 @@ export default function Products({ products, OnAddToCart }) {
         setCurrentPage(value);
     };
 
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-    
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
     const filteredProducts = products.filter(product => {
         return product['book_name'].toLowerCase().includes(value.toLowerCase())
     });
@@ -43,15 +35,10 @@ export default function Products({ products, OnAddToCart }) {
                 <form className={classes.searchform}>
                     <TextField className="seach_input" placeholder="Поиск" variant="outlined" onChange={(event) => setValue(event.target.value)} size="small"/>
                 </form>
-                <div>
-                <Button aria-controls="sort" aria-haspopup="true" color="secondary" onClick={handleClick}>
-                    Категории
-                </Button>
-                <Menu id="menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-                    <MenuItem containerElement={<Link to="/?category=1" />}>Современные любовные романы</MenuItem>
-                    <MenuItem containerElement={<Link to="/?category=2" />} onClick={()=>{handleClose()}}>Категория 2</MenuItem>
-                    <MenuItem containerElement={<Link to="/?category=3" />} onClick={()=>{handleClose()}}>Категория 3</MenuItem>
-                </Menu>
+                <div className={classes.links}>
+                    <Typography component={Link} to={'/?category=1'} gutterBottom> Современные любовные романы </Typography>
+                    <Typography component={Link} to={'/?category=16'} gutterBottom> Триллеры </Typography>
+                    <Typography component={Link} to={'/?category=18'} gutterBottom> Биографии </Typography>
                 </div>
             </div>
             <div className={classes.mainPage}>

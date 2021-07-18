@@ -27,8 +27,11 @@ function GetProducts() {
         url = "http://805eb1aed13c.ngrok.io/api/products?category=" + query.get("category")
       }
       let result = await fetch(url);
-      result = await result.json();
-      setProducts(result);
+      let prods = await result.json();
+
+      //В зависимости от наличия фильтра JSON с бэка приходит разный => фильтр по категории, который ДОЛЖЕН работать, не работает 
+
+      setProducts(prods);
     }
     fetchProducts();
   }, []);
@@ -67,7 +70,7 @@ function GetProducts() {
   return (
     <>
       <Navbar booksCount={booksCount}/> 
-      <Products cart={cart} products = {query.get("category") ? products[0] : products['data']} OnAddToCart={handleOnAddToCart} />
+      <Products cart={cart} products = {products['data']} OnAddToCart={handleOnAddToCart} />
     </>
   )
 }
