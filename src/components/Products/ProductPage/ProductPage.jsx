@@ -12,7 +12,7 @@ export default function ProductPage( { product, cart, OnAddToCart } ) {
         <div>
             <div className={classes.toolbar} />
             <Grid container justifyContent='center'>
-                <Grid className={classes.image} item sm={4} key={1}>
+                <Grid item sm={4} key={1}>
                     <img src={product.data_img} />
                 </Grid>
                 <Grid item sm={6}>

@@ -1,9 +1,8 @@
 import { Container, Typography, Button, Grid } from '@material-ui/core';
 import CartItem from './CartItem/CartItem';
 import { Link } from 'react-router-dom';
-
+import './styles.sass'
 import useStyles from './styles';
-import { useState } from 'react';
 
 export default function Cart( { cart, OnDeleteFromCart, booksCount, OnAddToCart } ) {
 
@@ -11,7 +10,7 @@ export default function Cart( { cart, OnDeleteFromCart, booksCount, OnAddToCart 
 
     const EmptyCart = () => (
         <Typography variant='subtitle1'>
-            Корзина пуста! <Link to='/' className={classes.link}>Добавим что-нибудь? </Link>
+            Корзина пуста! <Link to='/' className={'link'}>Добавим что-нибудь? </Link>
         </Typography>
     );
 
@@ -22,11 +21,11 @@ export default function Cart( { cart, OnDeleteFromCart, booksCount, OnAddToCart 
                     <CartItem cartItemProduct={cartItem} cartItemInfo={cart[0]['products'][index]} OnDeleteFromCart={OnDeleteFromCart} OnAddToCart={OnAddToCart}/>
                 ))}
             </Grid>
-            <div className={classes.cartDetails}>
+            <div className={'cartDetails'}>
                 <Typography variant='h4'>
                     Итог: {cart[1]} руб.
                 </Typography>
-                <Button component={Link} to='/checkout' className={classes.checkoutButton} size='large' type='button' variant='contained' color='primary'>
+                <Button component={Link} to={'/checkout'} className={'checkoutButton'} size='large' type='button' variant='contained' color='primary'>
                     К оплате
                 </Button>
             </div>
@@ -35,7 +34,7 @@ export default function Cart( { cart, OnDeleteFromCart, booksCount, OnAddToCart 
     return (
         <Container>
             <div className={classes.toolbar} />
-            <Typography className={classes.title} variant='h3' gutterBottom>
+            <Typography className={'title'} variant='h3' gutterBottom>
                 Корзина
             </Typography>
             { (booksCount === 0) ? <EmptyCart /> : <FilledCart />}

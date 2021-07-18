@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 import Product from './Product/Product';
 import useStyles from './styles';
+import './styles.sass';
 
 export default function Products({ products, OnAddToCart }) {
     
@@ -31,17 +32,17 @@ export default function Products({ products, OnAddToCart }) {
     return (
         <main className={classes.content}>
             <div className={classes.toolbar}/>
-            <div className={classes.nav}>
-                <form className={classes.searchform}>
-                    <TextField className="seach_input" placeholder="Поиск" variant="outlined" onChange={(event) => setValue(event.target.value)} size="small"/>
+            <div className={'nav'}>
+                <form className={'searchform'}>
+                    <TextField className={'seach_input'} placeholder="Поиск" variant="outlined" onChange={(event) => setValue(event.target.value)} size="small"/>
                 </form>
-                <div className={classes.links}>
-                    <Typography component={Link} to={'/?category=1'} gutterBottom> Современные любовные романы </Typography>
-                    <Typography component={Link} to={'/?category=16'} gutterBottom> Триллеры </Typography>
-                    <Typography component={Link} to={'/?category=18'} gutterBottom> Биографии </Typography>
+                <div className={'links'}>
+                    <Typography className={'link1'} component={Link} to={'/?category=1'} gutterBottom> Современные любовные романы </Typography>
+                    <Typography className={'link2'} component={Link} to={'/?category=16'} gutterBottom> Триллеры </Typography>
+                    <Typography className={'link3'} component={Link} to={'/?category=18'} gutterBottom> Биографии </Typography>
                 </div>
             </div>
-            <div className={classes.mainPage}>
+            <div className={'mainPage'}>
                 <Container>
                     <Grid container justify="center" spacing={4}>
                         {filteredProducts.slice(currentPage * prodPerPage - prodPerPage, currentPage * prodPerPage).map((product) => (
@@ -50,7 +51,7 @@ export default function Products({ products, OnAddToCart }) {
                             </Grid>
                          ))}
                     </Grid>
-                    <Pagination className={classes.pagination} shape="rounded" color="primary" count={Math.ceil(products.length / prodPerPage)} page={currentPage} onChange={handlePagination}/>
+                    <Pagination className={'pagination'} shape="rounded" color="primary" count={Math.ceil(products.length / prodPerPage)} page={currentPage} onChange={handlePagination}/>
                 </Container>
             </div>
 

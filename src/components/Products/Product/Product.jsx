@@ -3,7 +3,7 @@ import { Card, CardMedia, CardContent, CardActions, Typography, Button, Divider 
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
-import './styles.scss';
+import './styles.sass';
 
 export default function Product({ product, OnAddToCart }) {
 
@@ -14,15 +14,15 @@ export default function Product({ product, OnAddToCart }) {
     }
 
     return (
-        <Card className='root' style={{ height: '100%' }}>
-            <CardMedia component={Link} to={"/products/" + String(product.id)} className='CardMedia' image={product.data_img} title={product.book_name}/>
-            <CardContent className='CardContent'>
+        <Card className={'root'} style={{ height: '100%' }}>
+            <CardMedia component={Link} to={"/products/" + String(product.id)} className={'CardMedia'} image={product.data_img} title={product.book_name}/>
+            <CardContent className={'CardContent'}>
                 <Typography variant="h6">{product.book_price} руб. </Typography>
                 <Divider/>
-                <Typography noWrap component={Link} to={"/products/" + String(product.id)} className='link' variant="h6" gutterBottom>{product.book_name}</Typography>
+                <Typography noWrap component={Link} to={"/products/" + String(product.id)} className={'link'} variant="h6" gutterBottom>{product.book_name}</Typography>
                 <Typography variant="body2" color="textSecondary">{product.book_author}</Typography>
             </CardContent>
-            <CardActions disableSpacing className='CardActions'>
+            <CardActions disableSpacing className={'CardActions'}>
                 { checkClick ? (
                     <Button variant='outlined' color='secondary' component={Link} to={"/cart"}>
                         Добавлено
