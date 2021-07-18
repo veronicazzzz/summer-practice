@@ -1,0 +1,23 @@
+.root {
+    flex-grow: 1;
+}
+
+.CardMedia {
+    padding-top: 56.25%;
+}
+
+.CardContent {
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+
+.CardActions {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.link {
+    text-decoration: none;
+    color: #000;
+}
